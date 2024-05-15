@@ -5,5 +5,10 @@
 public class Random {
     private static String API_KEY;
 
+
+
+
     //methods i need: generate one integer, flip one coin, roll one dice, generate N integers with replacement, generate n integers without replacement, flip n coins, roll n dice.
+
+
 }
