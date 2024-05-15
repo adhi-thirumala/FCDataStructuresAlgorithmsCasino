@@ -1,0 +1,12 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="RandomApp" type="Application" factoryName="Application">
+    <envs>
+      <env name="APIKEYRANDOMORG" value="0e07bf93-969e-41ed-9b5f-8d339266dcd6" />
+    </envs>
+    <option name="MAIN_CLASS_NAME" value="Random" />
+    <module name="Casino" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

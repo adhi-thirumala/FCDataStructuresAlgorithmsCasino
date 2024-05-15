@@ -5,8 +5,8 @@ public class Craps {
         this.betAmount = betAmount;
     }
 
-    public static int rollDice(){
-        Math.random();
+    public static void rollDice(){
+
     }
 
 }
