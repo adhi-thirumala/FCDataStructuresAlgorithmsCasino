@@ -1,0 +1,9 @@
+card object
+deck of cards object
+blackjack object
+player object with money
+
+craps object -
+
+
+global main - contains intro screen - choose game screen
