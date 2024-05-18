@@ -1,10 +1,11 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="RandomApp" type="Application" factoryName="Application">
     <envs>
-      <env name="APIKEYRANDOMORG" value="0e07bf93-969e-41ed-9b5f-8d339266dcd6" />
+      <env name="APIKEYRANDOMORG" value="d160ee96-31a6-4d8f-9b39-6bdeabaed01c" />
     </envs>
-    <option name="MAIN_CLASS_NAME" value="Random" />
+    <option name="MAIN_CLASS_NAME" value="Main" />
     <module name="Casino" />
+    <option name="PROGRAM_PARAMETERS" value="--enable-preview --source 22" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>

@@ -1,6 +1,7 @@
 # Java Jackpot Fox Den Casino
 ## Description of the Program
 ### Features (Lower number means high priority)
+* Recreated Random package that calls [Random.org](https://www.random.org) API
 * Good GUI and interface between the games (1)
 * Has shared money over the games (7)
 * Has

@@ -1,12 +1,12 @@
 public class Craps {
-    private int betAmount;
+    private final int betAmount;
 
     public Craps(int betAmount){
         this.betAmount = betAmount;
     }
 
-    public static void rollDice(){
 
+    public int getBetAmount() {
+        return betAmount;
     }
-
 }
