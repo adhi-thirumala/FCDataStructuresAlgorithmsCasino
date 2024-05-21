@@ -183,45 +183,6 @@ public class RandomOrgGenerator {
     }
 
     /**
-     * Returns a stack with all values from min to max (inclusive) shuffled.
-     * @param min the smallest value in the stack
-     * @param max the largest value in the stack
-     * @return the stack containing shuffled values.
-     */
-    public static IndexStack<Integer> shuffleIntegers(int min, int max){
-        ArrayList<Integer> temp = new ArrayList<>(max - min + 1 );
-        for(int i = min; i <= max; i++){
-            temp.add(i);
-        }
-        Collections.shuffle(temp, new Random(getDeckShuffleSeed()));
-        IndexStack<Integer> result = new IndexStack<>(max - min + 1);
-        while(!temp.isEmpty()){
-            result.push(temp.getFirst());
-            temp.removeFirst();
-        }
-        return result;
-    }
-
-    /**
-     * Returns a stack with all values from 0 to max (inclusive) shuffled. I think this is redundant and/or useless because of the new data structure i made called the shuffle stack.
-     * @param max the largest value in the stack
-     * @return the stack containing shuffled values.
-     */
-    public static IndexStack<Integer> shuffleIntegers(int max){
-        ArrayList<Integer> temp = new ArrayList<>(max + 1 );
-        for(int i = 0; i <= max; i++){
-            temp.add(i);
-        }
-        Collections.shuffle(temp, new Random(getDeckShuffleSeed()));
-        IndexStack<Integer> result = new IndexStack<>(max + 1);
-        while(!temp.isEmpty()){
-            result.push(temp.getFirst());
-            temp.removeFirst();
-        }
-        return result;
-    }
-
-    /**
      * Returns the value of one die roll. Refills the stack
      * if it gets empty.
      * @return a value from 1 to 6.
