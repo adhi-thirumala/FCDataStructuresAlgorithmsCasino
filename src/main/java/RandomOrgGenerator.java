@@ -15,7 +15,7 @@ import java.util.*;
  * to the internet mid-game, and it means we can minimize the number of API calls since if we make too many, it will cost money.
  * @author adhi-thirumala
  */
-public class RandomGenerator {
+public class RandomOrgGenerator {
     /**
      * Stack containing up to 10k integers that can either be dice rolls or roulette spins, the numbers range from 0, 185 meaning that when u call modulo 6 on them, it's like a die roll, and when you call modulo 38, it's like a roulette spin.
      */
@@ -25,12 +25,17 @@ public class RandomGenerator {
      */
     private static final ReferenceStack<Integer> cardDeckShuffleSeeds = new ReferenceStack<>();
 
+    private static boolean hasInitialized = false;
+
     /**
-     * The method refreshes both of the above fields once.
+     * The method refreshes both of the above fields once. If the method has already been called, it does nothing.
      */
     public static void initialize() {
+        if(hasInitialized)
+            return;
         refreshCardSeeds();
         refreshRouletteDice();
+        hasInitialized = true;
     }
 
     /**
@@ -170,7 +175,7 @@ public class RandomGenerator {
      * if it gets empty.
      * @return the seed to be used.
      */
-    private static int getDeckShuffleSeed() {
+    public static int getDeckShuffleSeed() {
         int result = cardDeckShuffleSeeds.pop();
         if (cardDeckShuffleSeeds.isEmpty())
             refreshCardSeeds();
@@ -198,7 +203,7 @@ public class RandomGenerator {
     }
 
     /**
-     * Returns a stack with all values from 0 to max (inclusive) shuffled.
+     * Returns a stack with all values from 0 to max (inclusive) shuffled. I think this is redundant and/or useless because of the new data structure i made called the shuffle stack.
      * @param max the largest value in the stack
      * @return the stack containing shuffled values.
      */
