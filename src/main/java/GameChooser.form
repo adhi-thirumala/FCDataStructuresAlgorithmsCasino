@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="GameChooser">
-  <grid id="27dc6" binding="background" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="playPanel" layout-manager="GridLayoutManager" row-count="5" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
       <xy x="20" y="20" width="746" height="560"/>
@@ -12,18 +12,118 @@
     <children>
       <component id="ad27d" class="javax.swing.JLabel">
         <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="0" row-span="1" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
+          <background color="-16763602"/>
           <font name="Segoe UI" size="26"/>
+          <foreground color="-16763602"/>
           <text resource-bundle="GuiProperties" key="label"/>
         </properties>
       </component>
-      <vspacer id="c3a4f">
+      <component id="883e2" class="javax.swing.JButton" binding="crapsButton">
         <constraints>
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="-1" height="100"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-9629128"/>
+          <font name="Segoe UI"/>
+          <foreground color="-2518609"/>
+          <text resource-bundle="GuiProperties" key="craps"/>
+        </properties>
+      </component>
+      <component id="3d2ac" class="javax.swing.JButton" binding="rouletteButton">
+        <constraints>
+          <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="-1" height="100"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-9629128"/>
+          <font name="Segoe UI"/>
+          <foreground color="-2518609"/>
+          <text resource-bundle="GuiProperties" key="roulette"/>
+        </properties>
+      </component>
+      <component id="60eb" class="javax.swing.JButton" binding="baccaratButton">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="-1" height="100"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-9629128"/>
+          <enabled value="true"/>
+          <font name="Segoe UI"/>
+          <foreground color="-2518609"/>
+          <text resource-bundle="GuiProperties" key="baccarat.n"/>
+        </properties>
+      </component>
+      <component id="e84d5" class="javax.swing.JButton" binding="scoreboardButton">
+        <constraints>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-9629128"/>
+          <font name="Segoe UI"/>
+          <foreground color="-2518609"/>
+          <text resource-bundle="GuiProperties" key="scoreboard"/>
+        </properties>
+      </component>
+      <vspacer id="8e71f">
+        <constraints>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="1" use-parent-layout="false">
+            <preferred-size width="25" height="25"/>
+            <maximum-size width="25" height="25"/>
+          </grid>
         </constraints>
       </vspacer>
+      <component id="14c4e" class="javax.swing.JButton" binding="blackjackButton">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="-1" height="100"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-9629128"/>
+          <font name="Segoe UI"/>
+          <foreground color="-2518609"/>
+          <text resource-bundle="GuiProperties" key="blackjack"/>
+        </properties>
+      </component>
+      <grid id="e5691" binding="moneyAndExit" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+        <constraints>
+          <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-14390431"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="3ea16" class="javax.swing.JLabel" binding="currentMoney">
+            <constraints/>
+            <properties>
+              <font name="Segoe UI"/>
+              <foreground color="-16763602"/>
+              <horizontalAlignment value="2"/>
+              <horizontalTextPosition value="2"/>
+              <text resource-bundle="GuiProperties" key="currentMoney"/>
+            </properties>
+          </component>
+          <component id="e2d68" class="javax.swing.JButton" binding="endGame">
+            <constraints/>
+            <properties>
+              <background color="-9629128"/>
+              <foreground color="-2518609"/>
+              <horizontalAlignment value="4"/>
+              <text resource-bundle="GuiProperties" key="save.and.exit"/>
+              <toolTipText resource-bundle="GuiProperties" key="end.the.game.save.the.money.to.the.scoreboard"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
     </children>
   </grid>
 </form>

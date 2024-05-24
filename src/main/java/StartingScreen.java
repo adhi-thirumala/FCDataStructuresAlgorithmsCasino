@@ -28,20 +28,12 @@ public class StartingScreen extends JPanel{
                 else
                     name = nameInput.getText();
                 startGameButton.setEnabled(true);
-                System.out.println(name);
             }
         });
-        startGameButton.addActionListener(new ActionListener() {
-            /**
-             * Invoked when an action occurs.
-             *
-             * @param e the event to be processed
-             */
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                homePanel.setVisible(false);
-            }
-        });
+    }
+
+    public JButton getStartGameButton() {
+        return startGameButton;
     }
 
     public JPanel getHomePanel() {

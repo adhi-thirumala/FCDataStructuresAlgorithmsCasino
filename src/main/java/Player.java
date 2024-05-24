@@ -1,15 +1,14 @@
 public class Player {
+
+    /**
+     * String field representing name of the player.
+     */
     private String name;
 
     private int money;
 
-    public Player(String name, int money) {
-        this.name = name;
-        this.money = money;
-    }
-
-    public String getName() {
-        return name;
+    public Player() {
+        money = 1500;
     }
 
     public void setName(String name) {
@@ -22,5 +21,10 @@ public class Player {
 
     public void setMoney(int money) {
         this.money = money;
+    }
+
+    @Override
+    public String toString() {
+        return STR."name='\{name}\{'\''}, money=\{money}";
     }
 }
