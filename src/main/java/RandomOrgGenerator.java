@@ -110,7 +110,7 @@ public class RandomOrgGenerator {
             JsonObject randomJson = responseJson.get("random").getAsJsonObject();
             return randomJson.getAsJsonArray("data");
         } catch (IOException e) {
-            System.out.println(e.toString());
+            System.out.println(e);
         }
         return null;
     }
@@ -132,7 +132,7 @@ public class RandomOrgGenerator {
             return huc;
         }
         catch (URISyntaxException | IOException e) {//only time this happens if connection fails i think?
-            System.out.println(e.toString());
+            System.out.println(e);
         }
         return null;
     }

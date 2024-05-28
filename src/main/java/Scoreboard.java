@@ -1,6 +1,3 @@
-import com.opencsv.CSVReader;
-import com.opencsv.exceptions.CsvException;
-
 import javax.swing.*;
 import javax.swing.plaf.FontUIResource;
 import javax.swing.table.DefaultTableModel;
@@ -8,7 +5,6 @@ import java.awt.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.List;
 
 public class Scoreboard extends JFrame {
 

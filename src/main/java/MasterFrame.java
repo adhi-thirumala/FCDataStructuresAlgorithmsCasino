@@ -20,7 +20,7 @@ import java.util.stream.Stream;
 
 
 public class MasterFrame extends JFrame{
-    private Player gambler;
+    private final Player gambler;
     public static Image ICON_IMAGE = new ImageIcon("src/main/resources/icon.jpg").getImage();
     public MasterFrame(){
         gambler = new Player();
