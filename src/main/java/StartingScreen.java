@@ -24,7 +24,7 @@ public class StartingScreen extends JPanel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(Objects.equals(nameInput.getText(), ""))
-                    name = "Venkatanarasimharajuvaripeta";
+                    name = "Adhi";
                 else
                     name = nameInput.getText();
                 startGameButton.setEnabled(true);

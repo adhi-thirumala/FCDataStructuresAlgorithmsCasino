@@ -29,7 +29,7 @@
         </constraints>
         <properties>
           <background color="-9629128"/>
-          <font name="Segoe UI"/>
+          <font name="Segoe UI" size="26"/>
           <foreground color="-2518609"/>
           <text resource-bundle="GuiProperties" key="craps"/>
         </properties>
@@ -42,7 +42,7 @@
         </constraints>
         <properties>
           <background color="-9629128"/>
-          <font name="Segoe UI"/>
+          <font name="Segoe UI" size="26"/>
           <foreground color="-2518609"/>
           <text resource-bundle="GuiProperties" key="roulette"/>
         </properties>
@@ -56,7 +56,7 @@
         <properties>
           <background color="-9629128"/>
           <enabled value="true"/>
-          <font name="Segoe UI"/>
+          <font name="Segoe UI" size="26"/>
           <foreground color="-2518609"/>
           <text resource-bundle="GuiProperties" key="baccarat.n"/>
         </properties>
@@ -75,7 +75,7 @@
       <vspacer id="8e71f">
         <constraints>
           <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="1" use-parent-layout="false">
-            <preferred-size width="25" height="25"/>
+            <preferred-size width="13" height="13"/>
             <maximum-size width="25" height="25"/>
           </grid>
         </constraints>
@@ -88,7 +88,7 @@
         </constraints>
         <properties>
           <background color="-9629128"/>
-          <font name="Segoe UI"/>
+          <font name="Segoe UI" size="26"/>
           <foreground color="-2518609"/>
           <text resource-bundle="GuiProperties" key="blackjack"/>
         </properties>

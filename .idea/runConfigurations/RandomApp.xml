@@ -5,7 +5,7 @@
     </envs>
     <option name="MAIN_CLASS_NAME" value="Main" />
     <module name="Casino" />
-    <option name="PROGRAM_PARAMETERS" value="--enable-preview --source 22" />
+    <option name="PROGRAM_PARAMETERS" value="--release 22 --enable-preview" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>

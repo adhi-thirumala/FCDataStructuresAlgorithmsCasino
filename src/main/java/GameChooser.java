@@ -23,4 +23,37 @@ public class GameChooser extends JPanel{
     public JPanel getPanel() {
         return playPanel;
     }
+
+    public JButton getEndGame() {
+        return endGame;
+    }
+
+    public JButton getScoreboardButton() {
+        return scoreboardButton;
+    }
+
+    public JButton getCrapsButton() {
+        return crapsButton;
+    }
+
+
+    public JButton getRouletteButton() {
+        return rouletteButton;
+    }
+
+
+    public JButton getBaccaratButton() {
+        return baccaratButton;
+    }
+
+
+    public JButton getBlackjackButton() {
+        return blackjackButton;
+    }
+
+
+    public JPanel getMoneyAndExit() {
+        return moneyAndExit;
+    }
+
 }

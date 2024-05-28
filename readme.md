@@ -2,7 +2,7 @@
 ## Description of the Program
 ### Features (Lower number means high priority)
 * Recreated Random package that calls [Random.org](https://www.random.org) API
-* Good GUI and interface between the games (1)
+* Good GUI and interface between the games (1) - in progress
 * Has shared money over the games (7)
 * Has
   * Blackjack (2)
@@ -10,7 +10,7 @@
   * Craps (4)
   * Baccarat (5)
 * Gives players up to two loans if they go below zero dollars (9)
-* Allows the player to cash out whenever they want (8)
+* Allows the player to cash out whenever they want (8) - actually at the top
 * Has persistent scoreboard with top scores (10)
 ### Inputs
 * Clicks for the games

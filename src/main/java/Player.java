@@ -19,12 +19,16 @@ public class Player {
         return money;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public void setMoney(int money) {
         this.money = money;
     }
 
     @Override
     public String toString() {
-        return STR."name='\{name}\{'\''}, money=\{money}";
+        return  STR."name='\{name}\{'\''}, money=\{money}";
     }
 }

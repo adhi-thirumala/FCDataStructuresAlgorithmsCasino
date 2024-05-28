@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Scoreboard">
+  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="20" y="20" width="500" height="400"/>
+    </constraints>
+    <properties>
+      <background color="-11186176"/>
+      <foreground color="-11186176"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <component id="86f2d" class="javax.swing.JLabel">
+        <constraints border-constraint="North"/>
+        <properties>
+          <background color="-11186176"/>
+          <font name="Segoe UI" size="18"/>
+          <foreground color="-2830486"/>
+          <horizontalAlignment value="0"/>
+          <text value="Top Scores"/>
+        </properties>
+      </component>
+      <grid id="2171" binding="tablePanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+        <constraints border-constraint="Center"/>
+        <properties>
+          <background color="-15904697"/>
+          <foreground color="-4891775"/>
+        </properties>
+        <border type="none"/>
+        <children/>
+      </grid>
+    </children>
+  </grid>
+</form>

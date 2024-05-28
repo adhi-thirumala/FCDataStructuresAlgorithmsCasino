@@ -1,5 +1,7 @@
+import java.io.IOException;
+
 public class Main {
-    public static void main(String[] args){
-        new MasterFrame();
+    public static void main(String[] args) throws IOException {
+        MasterFrame game = new MasterFrame();
     }
 }

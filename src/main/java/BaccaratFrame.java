@@ -1,9 +1,10 @@
 import javax.swing.*;
 
-public class BaccaratPanel extends JFrame {
+public class BaccaratFrame extends JFrame {
     private JPanel panel1;
 
-    public BaccaratPanel(){
+    public BaccaratFrame(){
+        setIconImage(MasterFrame.ICON_IMAGE);
         setTitle("Punto Banco Baccarat");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(300, 200);
