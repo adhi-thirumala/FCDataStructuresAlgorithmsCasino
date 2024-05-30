@@ -28,7 +28,7 @@ public class RandomOrgGenerator {
     private static boolean hasInitialized = false;
 
     /**
-     * The method refreshes both of the above fields once. If the method has already been called, it does nothing. If it hasn't been called, on first diceroll or whatever, it'll be called.
+     * The method refreshes both of the above fields once. If the method has already been called, it does nothing. If it hasn't been called, on first dice roll or whatever, it'll be called.
      */
     private static void initialize() {
         if(hasInitialized)
@@ -51,7 +51,7 @@ public class RandomOrgGenerator {
         // that takes the response string that the HTML request gives and
         // turns it into a json array, parts of it are in this and parts
         // are in the methods that this called. ***note that the api key in this request has been cancelled and you can't use it.
-        //prompt: how do i make https requests with jsonrpd2 in java, then, i have this json {
+        //prompt: how do i make https requests with jsonrpc2 in java, then, i have this json {
         //    "jsonrpc": "2.0",
         //    "method": "generateIntegers",
         //    "params": {
@@ -151,7 +151,7 @@ public class RandomOrgGenerator {
      * Fills the stack with seeds for the card shuffling.
      */
     private static void refreshCardSeeds() {
-        JsonArray seeds = makeAPICall((int) 2, 2 * (int) (Math.pow(10, 9))); //big seeds, little seeds
+        JsonArray seeds = makeAPICall(2, 2 * (int) (Math.pow(10, 9))); //big seeds, little seeds
         if (seeds != null) {
             for (int i = 0; i < seeds.size(); i++)
                 cardDeckShuffleSeeds.push(seeds.get(i).getAsInt());
