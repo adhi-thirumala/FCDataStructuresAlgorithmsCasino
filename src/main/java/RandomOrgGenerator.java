@@ -28,9 +28,9 @@ public class RandomOrgGenerator {
     private static boolean hasInitialized = false;
 
     /**
-     * The method refreshes both of the above fields once. If the method has already been called, it does nothing.
+     * The method refreshes both of the above fields once. If the method has already been called, it does nothing. If it hasn't been called, on first diceroll or whatever, it'll be called.
      */
-    public static void initialize() {
+    private static void initialize() {
         if(hasInitialized)
             return;
         refreshCardSeeds();
@@ -78,7 +78,7 @@ public class RandomOrgGenerator {
 
         Map<String, Object> params = new HashMap<>();
         params.put("apiKey", System.getenv("APIKEYRANDOMORG")); //need env variable in configuration
-        params.put("n", 10000); //pick max numbers
+        params.put("n", 100); //pick max numbers
         params.put("min", min);
         params.put("max", max);
         request.put("params", params);
@@ -106,9 +106,8 @@ public class RandomOrgGenerator {
                 in.close();
             }
             // turn the response string back into a json, so we can grab the array of outputs = https://www.baeldung.com/gson-string-to-jsonobject
-            JsonObject responseJson = JsonParser.parseString(responseString.toString()).getAsJsonObject();
-            JsonObject randomJson = responseJson.get("random").getAsJsonObject();
-            return randomJson.getAsJsonArray("data");
+
+            return JsonParser.parseString(responseString.toString()).getAsJsonObject().get("result").getAsJsonObject().get("random").getAsJsonObject().get("data").getAsJsonArray();
         } catch (IOException e) {
             System.out.println(e);
         }
@@ -152,7 +151,7 @@ public class RandomOrgGenerator {
      * Fills the stack with seeds for the card shuffling.
      */
     private static void refreshCardSeeds() {
-        JsonArray seeds = makeAPICall((int) (-1 * Math.pow(10, 9)), (int) (Math.pow(10, 9))); //big seeds, little seeds
+        JsonArray seeds = makeAPICall((int) 2, 2 * (int) (Math.pow(10, 9))); //big seeds, little seeds
         if (seeds != null) {
             for (int i = 0; i < seeds.size(); i++)
                 cardDeckShuffleSeeds.push(seeds.get(i).getAsInt());
@@ -164,6 +163,8 @@ public class RandomOrgGenerator {
      * @return the number that is spun from 0 to 37.
      */
     public static int spinRouletteWheel() {
+        if(!hasInitialized)
+            initialize();
         int result = rouletteDiceIntegers.pop() % 38; //00 is actually 37
         if (rouletteDiceIntegers.isEmpty())
             refreshRouletteDice();
@@ -176,6 +177,8 @@ public class RandomOrgGenerator {
      * @return the seed to be used.
      */
     public static int getDeckShuffleSeed() {
+        if(!hasInitialized)
+            initialize();
         int result = cardDeckShuffleSeeds.pop();
         if (cardDeckShuffleSeeds.isEmpty())
             refreshCardSeeds();
@@ -188,6 +191,8 @@ public class RandomOrgGenerator {
      * @return a value from 1 to 6.
      */
     public static int rollDie() {
+        if(!hasInitialized)
+            initialize();
         int result = rouletteDiceIntegers.pop() % 6 + 1;
         if (rouletteDiceIntegers.isEmpty())
             refreshRouletteDice();
@@ -200,6 +205,8 @@ public class RandomOrgGenerator {
      * @return the sum of the dice rolls.
      */
     public static int rollDice(int n) {
+        if(!hasInitialized)
+            initialize();
         int result = 0;
         for (int i = 0; i < n; i++)
             result += rollDie();
