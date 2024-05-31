@@ -1,3 +1,6 @@
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class Player {
 
     /**
@@ -5,30 +8,31 @@ public class Player {
      */
     private String name;
 
-    private int money;
+    private BigDecimal money;
 
     public Player() {
-        money = 1500;
+        money = BigDecimal.valueOf(1500);
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public int getMoney() {
-        return money;
+    public BigDecimal getMoney() {
+        return money.setScale(2, RoundingMode.HALF_UP);
     }
 
     public String getName() {
         return name;
     }
 
-    public void setMoney(int money) {
-        this.money = money;
+    public void setMoney(BigDecimal money) {
+        this.money = money.setScale(2, RoundingMode.HALF_UP);;
+
     }
 
     @Override
     public String toString() {
-        return  STR."name='\{name}\{'\''}, money=\{money}";
+        return  STR."name='\{name}\{'\''}, money=\{money.toString()}";
     }
 }

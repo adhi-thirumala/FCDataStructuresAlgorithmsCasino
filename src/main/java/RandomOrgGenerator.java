@@ -27,6 +27,11 @@ public class RandomOrgGenerator {
 
     private static boolean hasInitialized = false;
 
+    private static String APIKEYRANDOMORG;
+
+    public static void setAPIKEY(String s){
+        APIKEYRANDOMORG = "d160ee96-31a6-4d8f-9b39-6bdeabaed01c";
+    }
     /**
      * The method refreshes both of the above fields once. If the method has already been called, it does nothing. If it hasn't been called, on first dice roll or whatever, it'll be called.
      */
@@ -77,7 +82,7 @@ public class RandomOrgGenerator {
         request.put("id", 12713);
 
         Map<String, Object> params = new HashMap<>();
-        params.put("apiKey", System.getenv("APIKEYRANDOMORG")); //need env variable in configuration
+        params.put("apiKey", APIKEYRANDOMORG); //need env variable in configuration
         params.put("n", 100); //pick max numbers
         params.put("min", min);
         params.put("max", max);

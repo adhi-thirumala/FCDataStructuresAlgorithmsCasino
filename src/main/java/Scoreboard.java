@@ -16,11 +16,10 @@ public class Scoreboard extends JFrame {
         setVisible(true);
         setSize(400, 300);
         setLocationRelativeTo(null);
-        setVisible(false);
         setResizable(false);
         setTitle("All-Time Casino Scoreboards");
         setContentPane(panel1);
-
+        setIconImage(MasterFrame.ICON_IMAGE);
         panel1.add(tablePanel);
 
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -46,6 +45,7 @@ public class Scoreboard extends JFrame {
         table.setFont(new FontUIResource("Segoe UI", 0, 14));
         table.setBackground(new Color(36, 107, 97));
         table.setForeground(new Color(212,207, 106));
+        table.setEnabled(false);
         JScrollPane scrollPane = new JScrollPane(table);
         tablePanel.add(scrollPane, BorderLayout.CENTER);
         panel1.setBackground(new Color(36, 107, 97));

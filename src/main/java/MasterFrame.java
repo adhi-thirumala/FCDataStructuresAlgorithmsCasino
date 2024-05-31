@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.util.Comparator;
 import java.util.List;
@@ -18,12 +19,13 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.stream.Stream;
 
+import static java.lang.Long.parseLong;
+
 
 public class MasterFrame extends JFrame{
-    private final Player gambler;
+    public static final Player gambler = new Player();
     public static Image ICON_IMAGE = new ImageIcon("src/main/resources/icon.jpg").getImage();
     public MasterFrame(){
-        gambler = new Player();
         setIconImage(ICON_IMAGE);
         StartingScreen ss = new StartingScreen();
         GameChooser gc = new GameChooser();
@@ -51,52 +53,51 @@ public class MasterFrame extends JFrame{
             }
         });
 
-        gc.getEndGame().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    addPlayerToCSV();
+        gc.getEndGame().addActionListener(_ -> {
+            try {
+                addPlayerToCSV();
+            }
+            catch (IOException | CsvException ex) {
+                throw new RuntimeException(ex);
+            }
+            System.exit(0);
+        });
+
+        gc.getScoreboardButton().addActionListener(_ -> {
+            Scoreboard sc = new Scoreboard();
+            sc.refresh();
+            setButtonsEnabled(gc.getPanel(), false);
+            sc.addWindowListener(new WindowAdapter() {
+                /**
+                 * Invoked when the user attempts to close the window
+                 * from the window's system menu.
+                 *Re-enables the buttons on the
+                 * @param e the event to be processed
+                 */
+                @Override
+                public void windowClosing(WindowEvent e) {
+                    setButtonsEnabled(gc.getPanel(), true);
                 }
-                catch (IOException | CsvException ex) {
-                    throw new RuntimeException(ex);
+            });
+        });
+
+        gc.getBaccaratButton().addActionListener(_ -> {
+            setVisible(false);
+            BaccaratFrame bp = new BaccaratFrame();
+            bp.addWindowListener(new WindowAdapter() {
+                /**
+                 * Invoked when a window is in the process of being closed.
+                 * The close operation can be overridden at this point.
+                 *
+                 * @param e
+                 */
+                @Override
+                public void windowClosing(WindowEvent e) {
+                    setVisible(true);
+                    bp.dispose();
                 }
-                System.exit(0);
-            }
+            });
         });
-
-        gc.getScoreboardButton().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Scoreboard sc = new Scoreboard();
-                sc.refresh();
-                setButtonsEnabled(gc.getPanel(), false);
-                sc.setVisible(true);
-                sc.addWindowListener(new WindowAdapter() {
-                    /**
-                     * Invoked when the user attempts to close the window
-                     * from the window's system menu.
-                     *Re-enables the buttons on the
-                     * @param e the event to be processed
-                     */
-                    @Override
-                    public void windowClosing(WindowEvent e) {
-                        setButtonsEnabled(gc.getPanel(), true);
-                    }
-                });
-            }
-        });
-
-        gc.getBaccaratButton().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                setButtonsEnabled(gc.getPanel(), false);
-                BaccaratFrame bp = new BaccaratFrame();
-            }
-        });
-    }
-
-    public Player getGambler() {
-        return gambler;
     }
 
     public void addPlayerToCSV() throws IOException, CsvException {
@@ -111,16 +112,25 @@ public class MasterFrame extends JFrame{
         cr.close();
         fr.close();
         lines.add(new String[]{String.valueOf(lineCount + 1), gambler.getName(), String.valueOf(gambler.getMoney())});
-        lines.sort(Comparator.comparingInt(o -> -1 * Integer.parseInt(o[2])));
+        lines.sort((o1, o2) -> {
+            BigDecimal temp = new BigDecimal(o2[2]).subtract(new BigDecimal(o1[2]));
+            if(temp.compareTo(BigDecimal.ZERO) > 0)
+                return 1;
+            else if(temp.compareTo(BigDecimal.ZERO) == 0)
+                return 0;
+            else
+                return -1;
+        });
         for(int i = 0; i < lines.size(); i++) {
             String temp;
-            if(i == 0)
+            //code for putting medals into the scoreboard
+           /* if(i == 0)
                 temp = "🥇";
             else if (i == 1)
                 temp = "\uD83E\uDD48"; //silver second place medal
             else if (i == 2)
                 temp =  "\uD83E\uDD48"; //bronze third place medal
-            else
+            else */
                 temp = String.valueOf(i + 1);
             lines.get(i)[0] = temp;
         }
@@ -131,13 +141,13 @@ public class MasterFrame extends JFrame{
         fw.close();
     }
     public static void setButtonsEnabled(JPanel panel, boolean isEnabled){
-        /***************************************************************************************
+        /*
          *    Title: Function to recursively set the enabled state of all buttons on a JPanel
          *    Author: <a href = https://stackoverflow.com/users/1632232/kesavamoorthi> Kesavamoorthi Subramanian </a>
          *    Date: September 9, 2015
          *    Availability: https://stackoverflow.com/questions/19324918/how-to-disable-all-components-in-a-jpanel
          *
-         ***************************************************************************************/
+        */
         panel.setEnabled(isEnabled);
         Component[] comps = panel.getComponents();
         for(Component comp : comps){

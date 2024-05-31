@@ -40,15 +40,25 @@ public class Card {
     public int getNumber() {
         return number;
     }
-/* This is presumably useless for now, who knows if it wil be useful later
-    private String suitToString(){
-        return switch(suit){
-            case 0 -> "Spades";
-            case 1 -> "Hearts";
-            case 2 -> "Clubs";
-            case 3 -> "Diamonds";
-            default -> throw new IllegalStateException(STR."Unexpected value: \{suit}");
+
+    public String toString(){
+        String temp = "";
+        switch(number){
+            case 1 -> temp += "Ace";
+            case 11 -> temp += "Jack";
+            case 12 -> temp += "Queen";
+            case 13 -> temp += "King";
+            default -> temp += String.valueOf(number);
+        }
+        switch(suit){
+            case 0 -> temp += "♠";
+            case 1 -> temp += "❤";
+            case 2 -> temp += "♣";
+            case 3 -> temp += "♦";
         };
- */
+
+        return temp;
+    }
+
 }
 
