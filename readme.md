@@ -1,7 +1,9 @@
 # Java Jackpot Fox Den Casino
+## Musings
+This program is largely unfinished, i did what i had to do to finish the class project, there are a lot of things I wanted to do, but didn't have time to do. Regardless, I still think I implemented all of the cool non game features that I wanted (true random from Random.org, persistent scoreboard, etc.)
 ## Build Instructions
 Main is in Main.java, it needs an environment variable for the Random.com API key.
-## Description of the Program
+## Description of the Program (as delineated by the rubric in class)
 ### Features (Lower number means high priority)
 * Recreated Random package that calls [Random.org](https://www.random.org) API
 * Good GUI and interface between the games 
@@ -11,7 +13,7 @@ Main is in Main.java, it needs an environment variable for the Random.com API ke
   * Roulette (3) WIP
   * Craps (4) WIP
   * Baccarat (5)
-* Gives players up to two loans if they go below zero dollars 
+* Gives players up to two loans if they go below zero dollars (scrapped, just don't lose money lmao)
 * Allows the player to cash out whenever they want
 * Has persistent scoreboard with top scores
 ### Inputs
