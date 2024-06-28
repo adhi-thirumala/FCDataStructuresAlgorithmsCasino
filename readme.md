@@ -1,13 +1,15 @@
 # Java Jackpot Fox Den Casino
+## Build Instructions
+Main is in Main.java, it needs an environment variable for the Random.com API key.
 ## Description of the Program
 ### Features (Lower number means high priority)
 * Recreated Random package that calls [Random.org](https://www.random.org) API
 * Good GUI and interface between the games 
 * Has shared money over the games
 * Has
-  * Blackjack (2)
-  * Roulette (3)
-  * Craps (4)
+  * Blackjack (2) WIP
+  * Roulette (3) WIP
+  * Craps (4) WIP
   * Baccarat (5)
 * Gives players up to two loans if they go below zero dollars 
 * Allows the player to cash out whenever they want
